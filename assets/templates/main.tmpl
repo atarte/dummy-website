@@ -1,0 +1,13 @@
+{{define "content"}}
+
+<main>
+   <h1>Welcome to the Dummy Website</h1>
+   
+   <div>
+      <div>AppName: {{.AppName}}</div>
+      <div>Version: {{.Version}}</div>
+      <div>Application running on {{CombineAddress .Address .Port}}</div>
+   </div>
+</main>
+
+{{end}}
