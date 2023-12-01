@@ -25,6 +25,7 @@ func main() {
 	r.PathPrefix(staticDir).Handler(http.StripPrefix(staticDir, http.FileServer(http.Dir("."+staticDir))))
 
 	r.HandleFunc("/", MainHandler)
+	r.HandleFunc("/crash", CrashHandler)
 
 	srv_adr := Address + ":" + Port
 
@@ -78,4 +79,8 @@ func MainHandler(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Fatalf("Template execution: %s", err)
 	}
+}
+
+func CrashHandler(w http.ResponseWriter, r *http.Request) {
+	log.Fatal("The server crash unexpectedly ! ;)")
 }
