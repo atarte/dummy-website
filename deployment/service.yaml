@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: dummy-website-service
+  namespace: dummy-ns
+spec:
+  # type: NodePort
+  type: LoadBalancer
+  selector:
+    app: dummy-website
+  ports:
+    - protocol: TCP
+      # name: http
+      port: 80
+      targetPort: 80
+      nodePort: 30080

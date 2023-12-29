@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dummy-website-deployment
+  namespace: dummy-ns
+  labels:
+    app: dummy-website
+    tier: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dummy-website
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        app: dummy-website
+        tier: frontend
+    spec:
+      containers:
+      - name: dummy-website
+        image: dummy-website:0.0.1
+        ports:
+        - containerPort: 80
+          # name: http
