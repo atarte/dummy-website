@@ -5,3 +5,16 @@ This is not the correct way on making a server, but serve only to try to experim
 
 ## Command
 
+Create namepaces
+```bash
+kubectl apply -f ./deployment/namespace.yaml
+# or
+kubectl create ns dummy-ns
+```
+
+Create every ressource (but you should probably create namespace first)
+```bash
+kubectl apply -f ./deployment
+```
+
+Or you can pass by the makefile
