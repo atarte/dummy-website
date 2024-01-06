@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: dummy-website-ingress
+  labels:
+    app: dummy-website-ingress
+  namespace: dummy-ns
+  annotations: 
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+  - host: dummy-website.127.0.0.1.nip.io
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: dummy-website-service
+            port:
+              # name: http
+              number: 80
